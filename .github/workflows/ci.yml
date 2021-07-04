@@ -9,15 +9,6 @@ env:
   IMAGE_NAME: artis3n/docker-oraclelinux8-ansible
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2.3.4
-
-      - name: Hadolint
-        run: make lint
-
   test:
     runs-on: ubuntu-latest
 

@@ -2,7 +2,7 @@
 
 .PHONY: lint
 lint:
-	docker run --rm -i hadolint/hadolint hadolint - < Dockerfile
+	docker run --rm -i hadolint/hadolint hadolint --ignore DL3031 - < Dockerfile
 
 .PHONY: size
 size: build
