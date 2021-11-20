@@ -2,7 +2,7 @@
 
 .PHONY: lint
 lint:
-	docker run --rm -i hadolint/hadolint hadolint --ignore DL3031 - < Dockerfile
+	hadolint --ignore DL3031 --ignore DL3033 --ignore DL3013 --ignore DL3003 --ignore SC2039 Dockerfile
 
 .PHONY: size
 size: build
@@ -19,7 +19,7 @@ test-edit: build
 
 .PHONY: build
 build:
-	DOCKER_BUILDKIT=1 docker build . -t artis3n/docker-oraclelinux8-ansible:$${TAG:-test}
+	docker build . -t artis3n/docker-oraclelinux8-ansible:$${TAG:-test}
 
 .PHONY: run
 run: build
