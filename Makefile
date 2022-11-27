@@ -2,7 +2,7 @@
 
 .PHONY: lint
 lint:
-	hadolint --ignore DL3031 --ignore DL3033 --ignore DL3013 --ignore DL3003 --ignore SC2039 Dockerfile
+	hadolint --ignore DL3031 --ignore DL3033 --ignore DL3013 --ignore DL3003 --ignore SC2039 --ignore SC3014 --ignore SC3037 Dockerfile
 
 .PHONY: size
 size: build
