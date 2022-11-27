@@ -15,9 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: hadolint/hadolint-action@v1.6.0
+      - uses: hadolint/hadolint-action@v3.0.0
         with:
-          ignore: DL3031 DL3033 DL3013 DL3003 SC2039
+          ignore: DL3031,DL3033,DL3013,DL3003,SC2039,SC3014,SC3037
 
   test:
     runs-on: ubuntu-latest
