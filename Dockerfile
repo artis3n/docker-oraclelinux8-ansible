@@ -26,7 +26,6 @@ RUN yum -y install rpm oracle-release-el8 dnf-plugins-core \
       libyaml \
       python3 \
       python3-pip \
-      python3-wheel \
       python3-pyyaml \
  && yum clean all \
  && rm -rf /var/cache
@@ -37,8 +36,8 @@ RUN sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers \
 && echo -e '[local]\nlocalhost ansible_connection=local' > /etc/ansible/hosts
 
 # Upgrade pip to latest version.
-RUN pip3 install --no-cache-dir --upgrade pip \
-&& pip3 install --no-cache-dir $pip_packages
+RUN python3 -m pip install --no-cache-dir --upgrade pip \
+&& python3 -m pip install --no-cache-dir $pip_packages
 
 VOLUME ["/sys/fs/cgroup"]
 CMD ["/usr/lib/systemd/systemd"]
